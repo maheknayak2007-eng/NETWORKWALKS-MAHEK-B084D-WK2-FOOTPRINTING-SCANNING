@@ -110,4 +110,18 @@ Reconnaissance doesn't need to touch a target to be powerful — whois, whatweb,
 
 ---
 
-**Author:** Mahek — Cybersecurity & Ethical Hacking Intern, Networkwalks (Batch B082)
+👨‍💻 Author
+
+Mahek Nayak Dharmesh
+
+Thank you for visiting this repository! This project was completed as part of my cybersecurity learning journey. Feedback and suggestions are always welcome.
+
+🔗 LinkedIn Post
+
+You can find my LinkedIn post for this project here:
+
+LinkedIn: https://www.linkedin.com/in/mahek-n-74b018414/recent-activity/all/
+
+---
+
+⭐ If you found this repository helpful, consider giving it a star!
