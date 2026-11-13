@@ -1,4 +1,4 @@
-# NETWORKWALKS-MAHEK-B082-WK2-FOOTPRINTING-SCANNING
+# NETWORKWALKS-MAHEK-B084D-WK2-FOOTPRINTING-SCANNING
 
 Week 2 submission — Networkwalks Cybersecurity & Ethical Hacking Internship (Batch B082)
 
