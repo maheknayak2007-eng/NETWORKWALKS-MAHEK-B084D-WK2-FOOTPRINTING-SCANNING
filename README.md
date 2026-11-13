@@ -28,6 +28,7 @@ Ran 6 built-in Kali tools against `networkwalks.com`.
 | wafw00f | `wafw00f networkwalks.com` | Protected by ModSecurity (SpiderLabs) WAF |
 | dnsrecon | `dnsrecon -d networkwalks.com` | MX, SPF and SRV (cPanel email) records |
 
+<img width="1920" height="1200" alt="pm1-01-whois" src="https://github.com/user-attachments/assets/5d379db0-675a-4a77-9718-9130c25c679c" />
 
 📁 [View all PM1 screenshots](./Pm1-Kali-Tools)
 
@@ -42,6 +43,7 @@ GHDB (exploit-db.com) isn't a search engine itself — it's a library of pre-wri
 
 **Note:** the live camera links aren't included here since they're real unsecured devices belonging to other people — only the dork technique and the harmless PDF-directory example are shown publicly. Full table (private): [`GHDB-Filled-Table.docx`](./GHDB-Filled-Table.docx).
 
+<img width="1920" height="1200" alt="pm2-02-math-pdf" src="https://github.com/user-attachments/assets/8a63d2a3-d5f6-4e27-8494-3f1d111d7453" />
 
 📁 [View all PM2 screenshots](./PM2-GHDB)
 
@@ -51,6 +53,7 @@ GHDB (exploit-db.com) isn't a search engine itself — it's a library of pre-wri
 
 Installed Maltego on Windows, ran the domain entity `networkwalks.com` through the **"To Emails [Search Engine]"** transform. Found `info@networkwalks.com` as a related email, shown as a graph instead of plain text output.
 
+<img width="1920" height="1200" alt="pm3-03-result" src="https://github.com/user-attachments/assets/a5f689fe-d628-47df-b153-07595cec4ecc" />
 
 📁 [View all PM3 screenshots](./PM3-Maltego)
 
@@ -65,6 +68,7 @@ Target for this module was `microsoft.com`.
 | 1 | `theHarvester -d microsoft.com -l 1000 -b baidu` | 27 sub-domains, 0 emails |
 | 2 | `theHarvester -d microsoft.com -l 50 -b all` | 3 emails, 9978 hosts, 158 IPs, 9 ASNs |
 
+<img width="1920" height="1200" alt="pm4-01-all-source" src="https://github.com/user-attachments/assets/39be14ac-0d33-42f7-9a4b-3ed458933e83" />
 
 📁 [View all PM4 screenshots](./PM4-theHarvester)
 
@@ -84,6 +88,7 @@ nmap -PR -sn 10.255.199.0/24
 ```
 This found 2 live hosts: my PC (`10.255.199.116`, MAC `58-CD-C9-D6-0D-A3`) and the gateway (`10.255.199.242`, MAC `5A:B9:22:85:88:50`). Topology saved as PDF via the Topology tab.
 
+<img width="1920" height="1200" alt="pm5-04-topology" src="https://github.com/user-attachments/assets/477b75fc-efff-4012-a919-d289650ca256" />
 
 📁 [View all PM5 screenshots](./PM5-Zenmap)
 
