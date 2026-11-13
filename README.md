@@ -1,23 +1,24 @@
-# NETWORKWALKS-MAHEK-B084D-WK2-FOOTPRINTING-SCANNING
- 
+# NETWORKWALKS-MAHEK-B082-WK2-FOOTPRINTING-SCANNING
+
 Week 2 submission — Networkwalks Cybersecurity & Ethical Hacking Internship (Batch B082)
- 
+
 This week's topic was **footprinting and reconnaissance**. I completed all four elective modules plus both required ones:
- 
+
 - ✅ W2-PM1 — Footprinting with multiple Kali tools
 - ✅ W2-PM2 — Footprinting with GHDB (Google dorking)
 - ✅ W2-PM3 — Footprinting with Maltego
 - ✅ W2-PM4 — Footprinting with theHarvester
 - ✅ W2-PM5 — Network scanning with Zenmap (required)
 - ✅ W2-PM-FINAL — Penetration testing report (required)
-Full write-up with risk analysis and recommendations: [`W2-PM-FINAL-Report.docx`](./W2-PM-FINAL-Report.docx)
- 
+
+📄 Full write-up with risk analysis and recommendations: [`W2-PM-FINAL-Report.docx`](./W2-PM-FINAL-Report.docx)
+
 ---
- 
+
 ## Task 1 — Footprinting networkwalks.com with Kali Tools
- 
+
 Ran 6 built-in Kali tools against `networkwalks.com`.
- 
+
 | Tool | Command | What I found |
 |---|---|---|
 | whois | `whois networkwalks.com` | Registered with GoDaddy, created Nov 2019, HostGator name servers |
@@ -26,66 +27,72 @@ Ran 6 built-in Kali tools against `networkwalks.com`.
 | curl | `curl -I https://networkwalks.com` | HTTP headers, WordPress REST API path (`/wp-json/`) |
 | wafw00f | `wafw00f networkwalks.com` | Protected by ModSecurity (SpiderLabs) WAF |
 | dnsrecon | `dnsrecon -d networkwalks.com` | MX, SPF and SRV (cPanel email) records |
- 
-**Screenshots:** `Task-1-Kali-Tools/Screenshot (620).png` → whois, `(621)` → whatweb, `(622)` → nslookup, `(623)` → curl, `(624)`/`(625)` → wafw00f, `(626)` → dnsrecon.
- 
+
+
+📁 [View all PM1 screenshots](./Pm1-Kali-Tools)
+
 ---
- 
+
 ## Task 2 — Footprinting with GHDB
- 
+
 GHDB (exploit-db.com) isn't a search engine itself — it's a library of pre-written Google search queries ("dorks"). You copy a dork from GHDB, paste it into Google, and Google does the finding.
- 
+
 - Found 10 live, unauthenticated camera feeds using dorks like `intitle:"webcamXP" inurl:8080`.
 - Found 10 open directories with downloadable maths PDFs using dorks like `intitle:index.of "parent directory" mathematics pdf` — e.g. `https://theswissbay.ch/pdf/Gentoomen%20Library/Maths/`.
-**Note:** the live camera links aren't included here since they're real unsecured devices belonging to other people — only the dork technique and the harmless PDF-directory example are shown publicly. Full table (private): `GHDB-Filled-Table.docx`.
- 
-**Screenshots:** `Task-2-GHDB/Screenshot (654).png` → GHDB cam dork list, `(655)`/`(656)` → Google search for maths PDFs.
- 
+
+**Note:** the live camera links aren't included here since they're real unsecured devices belonging to other people — only the dork technique and the harmless PDF-directory example are shown publicly. Full table (private): [`GHDB-Filled-Table.docx`](./GHDB-Filled-Table.docx).
+
+
+📁 [View all PM2 screenshots](./PM2-GHDB)
+
 ---
- 
+
 ## Task 3 — Footprinting with Maltego
- 
+
 Installed Maltego on Windows, ran the domain entity `networkwalks.com` through the **"To Emails [Search Engine]"** transform. Found `info@networkwalks.com` as a related email, shown as a graph instead of plain text output.
- 
-**Screenshots:** `Task-3-Maltego/Screenshot (644)–(649).png` → install steps, `(650)`–`(653)` → configuration and the final domain → email graph.
- 
+
+
+📁 [View all PM3 screenshots](./PM3-Maltego)
+
 ---
- 
+
 ## Task 4 — Footprinting with theHarvester
- 
+
 Target for this module was `microsoft.com`.
- 
+
 | Run | Command | Result |
 |---|---|---|
 | 1 | `theHarvester -d microsoft.com -l 1000 -b baidu` | 27 sub-domains, 0 emails |
 | 2 | `theHarvester -d microsoft.com -l 50 -b all` | 3 emails, 9978 hosts, 158 IPs, 9 ASNs |
- 
-**Screenshots:** `Task-4-theHarvester/Screenshot (632)–(633).png` → Baidu run, `(628)–(631)` → all-sources run.
- 
+
+
+📁 [View all PM4 screenshots](./PM4-theHarvester)
+
 ---
- 
+
 ## Task 5 — Network Scanning with Zenmap
- 
+
 Scanned my own home network instead of a company target.
- 
+
 **Problem I hit:** `ipconfig` showed 3 adapters (real Wi-Fi + VMware's vmnet1/vmnet8). A normal Ping Scan on any of them returned 0 hosts.
- 
+
 **Root cause:** vmnet1/vmnet8 are isolated virtual networks with nothing on them — and on the real Wi-Fi adapter, Windows Firewall was silently blocking ICMP Echo Request replies, so even a correct scan came back empty.
- 
+
 **Fix:** switched to ARP-based discovery, which works on a local network even when ICMP is blocked:
 ```
 nmap -PR -sn 10.255.199.0/24
 ```
 This found 2 live hosts: my PC (`10.255.199.116`, MAC `58-CD-C9-D6-0D-A3`) and the gateway (`10.255.199.242`, MAC `5A:B9:22:85:88:50`). Topology saved as PDF via the Topology tab.
- 
-**Screenshots:** `Task-5-Zenmap/Screenshot (638).png` → Nmap install, `(639)` → ipconfig (all 3 adapters), `(640)–(642)` → scan output, `(643)` → saving topology as PDF.
- 
+
+
+📁 [View all PM5 screenshots](./PM5-Zenmap)
+
 ---
- 
+
 ## What I learned
- 
+
 Reconnaissance doesn't need to touch a target to be powerful — whois, whatweb, GHDB, Maltego and theHarvester all pulled real, usable information from public sources alone. The most useful personal lesson was from the Zenmap troubleshooting: "no results" from a scan doesn't mean "no hosts," it can just mean a firewall or a virtual adapter is in the way.
- 
+
 ---
- 
+
 **Author:** Mahek — Cybersecurity & Ethical Hacking Intern, Networkwalks (Batch B082)
