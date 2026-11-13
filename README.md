@@ -11,7 +11,7 @@ This week's topic was **footprinting and reconnaissance**. I completed all four 
 - ✅ W2-PM5 — Network scanning with Zenmap (required)
 - ✅ W2-PM-FINAL — Penetration testing report (required)
 
-📄 Full write-up with risk analysis and recommendations: [`W2-PM-FINAL-Report.docx`](./W2-PM-FINAL-Report.docx)
+📄 Full write-up with risk analysis and recommendations: [`W2-PM-FINAL-Report.pdf`](./W2-PM-FINAL-Report.pdf)
 
 ---
 
